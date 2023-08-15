@@ -1,0 +1,14 @@
+.App{
+ 
+  main{
+    background-color: #575757;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    flex-direction: column;
+    .main-conteiner{
+      max-width: 1600px;
+      padding: 0 5%;
+    }
+  }  
+}

@@ -1,0 +1,66 @@
+.knowledge{
+    padding: 40px 0;
+    p{
+        color: white;font-size: 30px;
+        font-weight: 900;
+        padding: 0 0 20px 0;
+    }
+    .skils-box{
+        display: flex;
+        flex-direction: column;
+        .main-skills{
+            display: flex;
+            justify-content: space-between;
+            column-gap: 10px;
+            flex-direction: column;
+            row-gap: 10px;
+            @media (min-width: 768px) {
+                flex-direction: row;
+            }
+            .frontend, .backend{
+                background-color: #5F5E9B;
+                flex-grow:1;
+                padding: 20px 0;
+                p{
+                    text-align: center;
+                    font-size: 30px;
+                    color: white;
+                    padding: 20px 0;
+                }
+                .group{
+                    display: flex;
+                    justify-content: space-around;
+                    padding: 5px;
+                    .column{
+                        display: flex;
+                        flex-direction: column;
+                        row-gap: 6px;
+                        li{
+                            font-size: 25px;
+                            
+                        }
+                    }
+                }
+            }
+        }
+        .another{
+            margin: 10px 0 0 0;
+            padding: 20px;
+            background-color: #5F5E9B;
+            display: flex;
+            justify-content: space-around;
+            flex-direction: column;
+            @media (min-width: 425px) {
+                flex-direction: row;
+            }
+            .column{
+                display: flex;
+                flex-direction: column;
+                li{
+                    font-size: 25px;
+                }
+            }
+        }
+    }
+    
+}

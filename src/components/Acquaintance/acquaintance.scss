@@ -1,0 +1,41 @@
+.about-my{
+    padding: 40px 0;
+    p{
+        font-size: 30px;
+        font-weight: 900;
+        color: #ffffff;
+        text-align: center;
+        @media (min-width: 768px) {
+            text-align: start;
+        }
+    }
+    .acquaintance-with-me{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: column;
+        @media (min-width: 768px) {
+            flex-direction: row;
+        }
+        .text{
+            margin: 20px;
+            font-size: 18px;
+            font-weight: 500;
+            color: black;
+            text-align: start;
+            @media (min-width: 768px) {
+                font-size: 25px;
+            }
+        }
+        img{
+            height: 248px;
+            width: 248px;
+            border-radius: 100%;
+
+            @media (min-width: 768px) {
+                height: 300px;
+                width: 300px;
+            }
+        }
+    }
+}
