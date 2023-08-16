@@ -1,0 +1,125 @@
+.projects-slider {
+    padding: 40px 0;
+    .head{
+        text-align: center;
+        padding: 0 0 40px 0;
+        p{
+            font-size: 35px;
+            color: white;
+            font-weight: 900;
+        }
+    }
+    .slider {
+
+        .slider-conteiner {
+            height: auto;
+            display: flex;
+            justify-content: center;
+            position: relative;
+            
+            .button-continer{
+                position: absolute;
+                display: flex;
+                justify-content: space-between;
+                padding: 0 10vw;
+                
+                width: 100%;
+                height: 100%;
+                
+                @media (min-width: 1600px) {
+                    padding: 0 200px;
+                }
+                .left, .right {
+                    z-index: 2;
+                    background: none;
+                    img{
+                        width: 12vw;
+                        border-radius: 50%;
+                        border: 1px solid white;
+                        background-color: rgba(42, 241, 118, 0.564);
+                        @media (min-width: 768px) {
+                            width: 7vw;
+                        }
+                        @media (min-width: 1600px) {
+                            width: 80px;
+                        }
+                    }
+                }
+
+            }
+            
+            .slider-navigation {
+                position: absolute;
+                bottom: 20px;
+                z-index: 2;
+                .nav-dot-conteiner {
+                    display: flex;
+                    column-gap: 10px;
+                    align-items: center;
+                    
+                    .nav-dot {
+                        width: 2vw;
+                        height: 2vw;
+                        background-color: #5F5E9B;
+                        border-radius: 50%;
+                        @media (min-width: 1600px) {
+                            width: 40px;
+                            height: 40px;
+                        }
+                    }
+                    .nav-dot.activ{
+                        background-color: brown;
+                    }
+                }
+            }
+            .carusell {
+                display: flex;
+                align-items: center;
+                overflow: hidden;
+                width: 100vw;
+                @media (min-width: 1600px) {
+                    width: 1600px;
+                }
+                .slide {
+                    width: 100%;
+                    position: relative;
+                    
+                    img{
+                        width: 0;
+                        border-radius: 30px;
+                        @media (min-width: 768px) {
+                            width: 10vw;
+                        }
+                        @media (min-width: 1600px) {
+                            width: 200px;
+                        }
+                    }
+                    .indicator {
+                        position: absolute;
+                    }
+                }
+                .slide.activ{
+                    width: 100%;
+                    z-index: 1;
+                    img{
+                        width: 100vw;
+                        @media (min-width: 768px) {
+                            width: 80vw;
+                        }
+                        @media (min-width: 1600px) {
+                            width: 1200px;
+                        }
+                    }
+                }
+                .slide.activ-left{
+                    pointer-events: none;
+                    transform: scale(3);
+                }
+                .slide.activ-right{
+                    pointer-events: none;
+                    transform: scale(3);
+                }
+            }
+        }
+    }
+}

@@ -6,6 +6,7 @@ import Acquaintance from '../Acquaintance/Acquaintance';
 import Line from '../SectionLine/SectionLine';
 import SkilsInfo from '../SkilsInfo/SlilsInfo';
 import MyProjectSlider from '../MyProjectSlider/MyProjectSlider';
+import SocialIcons from '../SocialIcons/SocialIcons';
 
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 
@@ -17,6 +18,8 @@ function App() {
         <main>
           <div className='main-conteiner'>
             <Acquaintance/>
+            <Line/>
+            <SocialIcons/>
             <Line/>
             <SkilsInfo/>
             <Line/>
