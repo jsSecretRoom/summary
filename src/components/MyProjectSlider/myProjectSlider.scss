@@ -37,12 +37,35 @@
                         border-radius: 50%;
                         border: 1px solid white;
                         background-color: rgba(42, 241, 118, 0.564);
-                        @media (min-width: 768px) {
+                        &:hover{
+                            background-color: #5F5E9B;
+                        }
+                        @media (min-width: 568px) {
                             width: 7vw;
                         }
                         @media (min-width: 1600px) {
                             width: 80px;
                         }
+                    }
+                }
+                .left{
+                    opacity: 0;
+                    transform: scale(3) translateX(-10%);
+                    transition: opacity 2s, transform 2s;
+
+                    &.animate{
+                        opacity: 1;
+                        transform: translateX(0);
+                    }
+                }
+                .right{
+                    opacity: 0;
+                    transform: scale(3) translateX(10%);
+                    transition: opacity 2s, transform 2s;
+
+                    &.animate{
+                        opacity: 1;
+                        transform: translateX(0);
                     }
                 }
 
@@ -52,6 +75,15 @@
                 position: absolute;
                 bottom: 20px;
                 z-index: 2;
+
+                opacity: 0;
+                transform: scale(7) translateY(100%);
+                transition: opacity 2s, transform 2s;
+                &.animate{
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+
                 .nav-dot-conteiner {
                     display: flex;
                     column-gap: 10px;
@@ -71,6 +103,7 @@
                         background-color: brown;
                     }
                 }
+                
             }
             .carusell {
                 display: flex;
@@ -86,7 +119,7 @@
                     
                     img{
                         width: 0;
-                        border-radius: 30px;
+                        border-radius: 20px;
                         @media (min-width: 768px) {
                             width: 10vw;
                         }
@@ -96,11 +129,24 @@
                     }
                     .indicator {
                         position: absolute;
+                        top: 30px;
+                        right: 30px;
+                        z-index: 3;
+                        font-size: 30px;
+                        color: rgb(0, 0, 0);
                     }
                 }
                 .slide.activ{
                     width: 100%;
                     z-index: 1;
+
+                    opacity: 0;
+                    transform: scale(-1) translateY(100%);
+                    transition: opacity 2s, transform 2s;
+                    &.animate{
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
                     img{
                         width: 100vw;
                         @media (min-width: 768px) {
@@ -111,13 +157,18 @@
                         }
                     }
                 }
-                .slide.activ-left{
+                .slide.activ-left-right{
                     pointer-events: none;
-                    transform: scale(3);
-                }
-                .slide.activ-right{
-                    pointer-events: none;
-                    transform: scale(3);
+                    opacity: 0;
+                    transform: scale(1) translateY(160%); /* Оба свойства в одном transform */
+
+                    transition: opacity 1.5s, transform 1.5s;
+
+                    &.animate {
+                        opacity: 1;
+                        transform: scale(3) translateY(0); /* Измените масштаб обратно на 1 */
+                    }
+                    
                 }
             }
         }

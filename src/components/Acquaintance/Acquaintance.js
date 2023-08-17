@@ -1,9 +1,20 @@
 import './acquaintance.scss';
 import MyFoto from '../../img/my.jpg'
+
+import React, { useEffect } from 'react';
+import Animations from '../Animations/Animations';
+
 function Acquaintance() {
+
+  useEffect(() => {
+    Animations('.nice');
+    Animations('.text');
+    Animations('.my-foto');
+  }, []);
+
     return ( 
         <section className='about-my'>
-            <p>Nice to meet you!</p>
+            <p className='nice'>Nice to meet you!</p>
             <div className='acquaintance-with-me'>
               <p className='text'>
                 My name is Ruslan! I am 23 years old, Mykolaiv Ukaina!
@@ -13,7 +24,7 @@ function Acquaintance() {
                 I use new standards for writing code that validates new ones
                 methods where necessary.
               </p>
-              <img src={MyFoto} alt="" />
+              <img className='my-foto' src={MyFoto} alt="" />
             </div>
         </section>
     );

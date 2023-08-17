@@ -11,8 +11,17 @@ nav{
         height: 70px;
         padding: 0 20px;
 
+        opacity: 0;
+        transform: translateY(-100%);
+        transition: opacity 1s, transform 1s;
+        
+        
         @media (min-width: 1600px) {
             width: 1600px;
+        }
+        &.animate { 
+            opacity: 1;
+            transform: translateY(0);
         }
         ul{
             display: flex;
@@ -60,6 +69,4 @@ nav{
             
         }
     }
-    
-    
 }

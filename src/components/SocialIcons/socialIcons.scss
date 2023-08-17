@@ -1,17 +1,70 @@
 .icons {
     padding: 40px 20px;
     width: 100%;
-    .imags {
+    .images {
         display: flex;
         justify-content: space-evenly;
-        a{
+
+        
+        .links-image{
+            
+
             img{
                 width: 10vw;
                 @media (min-width: 1600px) {
                    width: 100px; 
                 }
             }
+            
+        }
+        
+    }
+    .images a:nth-child(1) {
+        opacity: 0;
+        transform: translateX(-170%);
+        transition: opacity 2s, transform 1s;
+        
+        &.animate{
+            opacity: 1;
+            transform: translateX(0);
+            
         }
     }
+    
+    .images a:nth-child(2) {
+        opacity: 0;
+        transform: translateX(-170%);
+        transition: opacity 2s, transform 1s;
+        transition-delay: 0.5s;
+        &.animate{
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+    
+    .images a:nth-child(3) {
+        opacity: 0;
+        transform: translateX(-150%);
+        transition: opacity 2s, transform 1s;
+        transition-delay: 1s;
+
+        &.animate{
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+    
+    .images a:nth-child(4) {
+        opacity: 0;
+        transform: translateX(-140%);
+        transition: opacity 2s, transform 1s;
+        transition-delay: 1.5s;
+
+        &.animate{
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+    
 }
 

@@ -1,5 +1,5 @@
 .App{
- 
+  overflow-x: hidden;
   main{
     background-color: #575757;
     display: flex;
@@ -11,5 +11,12 @@
     .main-conteiner{
       max-width: 1600px;
     }
-  }  
+  }
+  footer{
+    background-color: #5F5E9B;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    flex-direction: column;
+  }
 }

@@ -1,14 +1,26 @@
 .about-my{
     padding: 40px 20px;
-    p{
+    .nice{
         font-size: 30px;
         font-weight: 900;
         color: #ffffff;
         text-align: center;
+
+        opacity: 0;
+        transform: translateY(100%);
+        transition: opacity 1s, transform 1s;
+
+        &.animate { 
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         @media (min-width: 768px) {
             text-align: start;
         }
+        
     }
+    
     .acquaintance-with-me{
         display: flex;
         align-items: center;
@@ -23,19 +35,41 @@
             font-weight: 500;
             color: black;
             text-align: start;
+
+            opacity: 0;
+            transform: translateY(100%);
+            transition: opacity 1s, transform 1s;
+
+            &.animate { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+
             @media (min-width: 768px) {
                 font-size: 25px;
             }
+            
         }
-        img{
+
+        .my-foto{
             height: 248px;
             width: 248px;
             border-radius: 100%;
+
+            opacity: 0;
+            transform: translateX(100%);
+            transition: opacity 1s, transform 1s;
+
+            &.animate { 
+                opacity: 1;
+                transform: translateX(0);
+            }
 
             @media (min-width: 768px) {
                 height: 300px;
                 width: 300px;
             }
+            
         }
     }
 }

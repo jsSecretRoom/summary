@@ -1,0 +1,40 @@
+
+.nav-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 120px;
+    padding: 10px 10px;
+    flex-direction: column;
+    width: 100vw;
+    @media (min-width: 768px) {
+        flex-direction: row;
+        height: 70px;
+        padding: 40px 20px;
+    }
+    @media (min-width: 1600px) {
+        width: 1600px;
+    }
+    .phone {
+        p{
+            font-size: 24px;
+            color: white;
+            font-weight: 900;
+            @media (min-width: 768px) {
+                font-size: 30px;
+            }
+        }
+    }
+    .futer-link {
+        display: flex;
+        column-gap: 30px;
+        justify-content: space-between;
+        a{
+            img{
+                width: auto;
+            }
+        }
+    }
+}
+
+

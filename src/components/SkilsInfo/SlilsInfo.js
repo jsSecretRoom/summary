@@ -1,8 +1,21 @@
 import './skilsInfo.scss';
+
+import React, { useEffect } from 'react';
+import Animations from '../Animations/Animations';
+
+
 function SkilsInfo() {
+
+    useEffect(() => {
+        Animations('.frontend');
+        Animations('.backend');
+        Animations('.skil');
+        Animations('.another');
+    }, []);
+
     return ( 
         <section className='knowledge'>
-            <p>Skils</p>
+            <p className='skil'>Skils</p>
             <div className='skils-box'>
                 <div className='main-skills'>
                     <div className='frontend'>

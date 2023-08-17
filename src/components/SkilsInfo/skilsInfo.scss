@@ -1,10 +1,21 @@
 .knowledge{
     padding: 40px 20px;
-    p{
+    .skil{
         color: white;font-size: 30px;
         font-weight: 900;
         padding: 0 0 20px 0;
+
+        opacity: 0;
+        transform: translateY(100%);
+        transition: opacity 1s, transform 1s;
+
+        &.animate { 
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
     }
+    
     .skils-box{
         display: flex;
         flex-direction: column;
@@ -21,6 +32,7 @@
                 background-color: #5F5E9B;
                 flex-grow:1;
                 padding: 20px 0;
+                border-radius: 10px;
                 p{
                     text-align: center;
                     font-size: 30px;
@@ -42,6 +54,28 @@
                     }
                 }
             }
+            .backend{
+                opacity: 0;
+                transform: translateX(100%);
+                transition: opacity 1s, transform 1s;
+
+                &.animate { 
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+            }
+            
+            .frontend{
+                opacity: 0;
+                transform: translateX(-100%);
+                transition: opacity 1s, transform 1s;
+
+                &.animate { 
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+            }
+            
         }
         .another{
             margin: 10px 0 0 0;
@@ -50,6 +84,16 @@
             display: flex;
             justify-content: space-around;
             flex-direction: column;
+            border-radius: 10px;
+
+            opacity: 0;
+            transform: translateY(100%);
+            transition: opacity 1s, transform 1s;
+
+            &.animate { 
+                opacity: 1;
+                transform: translateY(0);
+            }
             @media (min-width: 425px) {
                 flex-direction: row;
             }
@@ -61,6 +105,5 @@
                 }
             }
         }
-    }
-    
+    } 
 }

@@ -1,0 +1,42 @@
+.nav-bottom {
+    background-color: #965E9B;
+    width: 100%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    .border{
+        flex-grow:1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        position: relative;
+        a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #DAC767;
+            height: 100px;
+            width: 300px;
+            &:hover{
+                flex-grow:1;
+                height: 200px;
+                transition: flex-grow 1s ease, height 2s ease;
+            }
+            &:not(:hover) { /* Стиль для обратного состояния (без ховера) */
+                flex-grow:0;
+                height: 100px;
+                transition: flex-grow 1s ease, height 2s ease;
+            }
+            p{
+                font-size: 30px;
+                color: white;
+
+            }
+            
+        }
+
+    }
+    
+}
