@@ -15,14 +15,14 @@ nav{
         transform: translateY(-100%);
         transition: opacity 1s, transform 1s;
         
-        
-        @media (min-width: 1600px) {
-            width: 1600px;
-        }
         &.animate { 
             opacity: 1;
             transform: translateY(0);
         }
+        @media (min-width: 1600px) {
+            width: 1600px;
+        }
+        
         ul{
             display: flex;
             justify-content: space-around;

@@ -35,7 +35,8 @@
             font-weight: 500;
             color: black;
             text-align: start;
-
+            max-width: 60vw;
+            
             opacity: 0;
             transform: translateY(100%);
             transition: opacity 1s, transform 1s;
@@ -44,11 +45,13 @@
                 opacity: 1;
                 transform: translateY(0);
             }
-
+            
             @media (min-width: 768px) {
                 font-size: 25px;
             }
-            
+            @media (min-width: 1600px) {
+                max-width: 1220px;
+            }
         }
 
         .my-foto{

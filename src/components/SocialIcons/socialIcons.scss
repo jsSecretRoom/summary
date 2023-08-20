@@ -4,16 +4,38 @@
     .images {
         display: flex;
         justify-content: space-evenly;
-
         
         .links-image{
+            flex-grow:1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 10vw;
             
-
+            @media (min-width: 1600px) {
+                height: 150px;
+            }
             img{
-                width: 10vw;
-                @media (min-width: 1600px) {
-                   width: 100px; 
+                
+                &:hover{
+                    width: 12vw;
+                    transition:  ease, height 1s ease, width 1s;
                 }
+                &:not(:hover) {
+                    width: 9vw;
+                    transition: height 1s ease, width 1s;
+                }
+                @media (min-width: 1600px) {
+                   
+                    &:hover{
+                        width: 150px;
+                    }
+                    &:not(:hover) {
+                        width: 100px;
+                        
+                    }
+                }
+                
             }
             
         }
@@ -29,6 +51,7 @@
             transform: translateX(0);
             
         }
+        
     }
     
     .images a:nth-child(2) {
@@ -67,4 +90,3 @@
     }
     
 }
-

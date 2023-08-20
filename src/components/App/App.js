@@ -1,8 +1,6 @@
 import './reset.css';
 import './App.scss';
 
-
-
 import Nav from '../Nav/Nav';
 import Acquaintance from '../Acquaintance/Acquaintance';
 import Line from '../SectionLine/SectionLine';
@@ -13,14 +11,9 @@ import Diary from '../Diary/DiaryComponnt';
 import FooterHead from '../FooterHead/FooterHead';
 import NavBottom from '../NavBottom/NavBottom';
 
-
-
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 
 function App() {
-
-  
-
   return (
     <Router>
       
