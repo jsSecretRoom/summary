@@ -1,23 +1,126 @@
 .App{
   overflow-x: hidden;
+  position: relative;
   
   main{
     background-color: #575757;
+    @media (min-width: 1600px) {
+      background: url('../../img/bacground.svg') 0 0/cover no-repeat;
+    }
     display: flex;
     justify-items: center;
     align-items: center;
     flex-direction: column;
-    overflow-x: hidden;
-    
+    overflow: hidden;
+    z-index: 2;
     .main-conteiner{
       max-width: 1600px;
+
+      .decor-head, .decor-main1, .decor-main2, .decor-main3{
+        padding: 0 0 2px 0;
+        top: 70px;
+        width: 100vw;
+        height: auto;
+        overflow: hidden;
+    
+        perspective: 1000px;
+        transform: perspective(1000px) rotateX(10deg) translateY(-600px);
+        background-color: cadetblue;
+        border-radius: 0;
+        transition: transform 0.5s ease;
+
+        box-shadow: 0 0px 0px rgba(0, 0, 0, 0);
+
+        opacity: 0;
+        transition: opacity 1.5s, transform 1s; // Переход для прозрачности и transform
+
+
+        &.animate {
+          opacity: 1;
+          transform: perspective(1000px) rotateX(0deg) translateY(0px); 
+          animation: fadeIn 1s ease-in-out forwards; 
+        }
+
+        @media (min-width: 1600px) {
+          width: 1600px;
+          height: 800px;
+          border-radius: 0 0 50px 50px;
+          transform: perspective(1000px) rotateX(0deg) translateY(20vh);
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+          border-bottom: 1px solid black;
+          &.animate {
+            opacity: 1;
+            transform: perspective(1000px) rotateX(10deg) translateY(-60px); 
+            animation: fadeIn 1s ease-in-out forwards; 
+          }
+          &:hover{
+            transform:  rotateX(0deg);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7);
+          
+          }
+        }
+
+      }
+      .decor-main1{
+        margin: 0 0 0 0;
+        height: auto;
+        transform: perspective(1000px) rotateX(10deg) translateY(20vh);
+        border-radius: 0px;
+        @media (min-width: 1600px) {
+          height: 670px;
+          border-radius: 50px;
+          margin: 40px 0 0 0;
+        }
+      }
+      .decor-main2{
+        margin: 0 0 0 0;
+        height: auto;
+        transform: perspective(1000px) rotateX(10deg) translateY(20vh);
+        border-radius: 0;
+        @media (min-width: 1600px) {
+          height: 800px;
+          border-radius: 50px;
+          margin: 40px 0 0 0;
+        }
+        
+      }
+      .decor-main3{
+        height: auto;
+        transform: perspective(1000px) rotateX(0deg) translateY(20vh);
+        border-radius: 0;
+        &.animate {
+          transform: perspective(1000px) rotateX(0deg);
+        }
+        
+        @media (min-width: 1600px) {
+          height: 650px;
+          border-radius: 50px 50px 0 0 ;
+          transform: perspective(1000px) rotateX(10deg) translateY(20vh);
+          &.animate {
+            transform: perspective(1000px) rotateX(10deg);
+          }
+          &:hover{
+            transform:  rotateX(0deg);
+          }
+        }
+      }
     }
   }
-  footer{
-    background-color: #5F5E9B;
+  .animate-futer{
+    background-color: #363636;
     display: flex;
     justify-items: center;
     align-items: center;
     flex-direction: column;
+
+    opacity: 0;
+    transform:  translateX(100%);
+    transition: opacity 1.5s, transform 1s;
+
+    &.animate {
+      opacity: 1;
+      transform: translateX(0);
+    }
   }
+  
 }

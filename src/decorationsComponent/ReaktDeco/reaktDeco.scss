@@ -1,0 +1,10 @@
+.reakt-deco{
+    position: absolute;
+    width: 1000px;
+    height: 1000px;
+    z-index: -5;
+    .reactsvg{
+        width: 100%;
+        height: 100;
+    }
+}

@@ -4,44 +4,54 @@
     .images {
         display: flex;
         justify-content: space-evenly;
-        
-        .links-image{
+        .link{
             flex-grow:1;
             display: flex;
             align-items: center;
             justify-content: center;
             height: 10vw;
-            
             @media (min-width: 1600px) {
                 height: 150px;
             }
-            img{
-                
+            .links-image{
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
                 &:hover{
-                    width: 12vw;
-                    transition:  ease, height 1s ease, width 1s;
+                    background-color: #1c3848;
                 }
-                &:not(:hover) {
-                    width: 9vw;
-                    transition: height 1s ease, width 1s;
-                }
-                @media (min-width: 1600px) {
-                   
+                
+                img{
+                    
                     &:hover{
-                        width: 150px;
+                        width: 12vw;
+                        transition:  ease, height 1s ease, width 1s;
                     }
+                    
                     &:not(:hover) {
-                        width: 100px;
-                        
+                        width: 9vw;
+                        transition: height 1s ease, width 1s;
                     }
+                    @media (min-width: 1600px) {
+                       
+                        &:hover{
+                            width: 150px;
+                        }
+                        &:not(:hover) {
+                            width: 100px;
+                            
+                        }
+                    }
+                    
                 }
                 
             }
-            
         }
         
+        
     }
-    .images a:nth-child(1) {
+    .images .link:nth-child(1) {
         opacity: 0;
         transform: translateX(-170%);
         transition: opacity 2s, transform 1s;
@@ -54,7 +64,7 @@
         
     }
     
-    .images a:nth-child(2) {
+    .images .link:nth-child(2) {
         opacity: 0;
         transform: translateX(-170%);
         transition: opacity 2s, transform 1s;
@@ -65,7 +75,7 @@
         }
     }
     
-    .images a:nth-child(3) {
+    .images .link:nth-child(3) {
         opacity: 0;
         transform: translateX(-150%);
         transition: opacity 2s, transform 1s;
@@ -77,7 +87,7 @@
         }
     }
     
-    .images a:nth-child(4) {
+    .images .link:nth-child(4) {
         opacity: 0;
         transform: translateX(-140%);
         transition: opacity 2s, transform 1s;

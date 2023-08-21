@@ -7,6 +7,7 @@
     padding: 10px 10px;
     flex-direction: column;
     width: 100vw;
+    
     @media (min-width: 768px) {
         flex-direction: row;
         height: 70px;
@@ -30,8 +31,13 @@
         column-gap: 30px;
         justify-content: space-between;
         a{
+            border-radius: 50%;
             img{
                 width: auto;
+            }
+            &:hover{
+                background-color: #1c3848;
+
             }
         }
     }

@@ -3,14 +3,15 @@ nav{
     justify-items: center;
     align-items: center;
     flex-direction: column;
-    background-color: #5F5E9B;
+    background-color: #363636;
+    
     .nav-conteiner{
         display: flex;
         justify-content: space-between;
         width: 100vw;
         height: 70px;
         padding: 0 20px;
-
+        
         opacity: 0;
         transform: translateY(-100%);
         transition: opacity 1s, transform 1s;
@@ -37,7 +38,7 @@ nav{
             li{
     
                 a{
-                    color: black;
+                    color: rgb(255, 255, 255);
                     display: none;
                     @media (min-width: 568px) {
                         display: block;
@@ -57,13 +58,18 @@ nav{
                 .main-button{
                     background: none;
                     display: block;
+                    
                     @media (min-width: 568px) {
                         display: none;
                     }
+                    &:hover{
+                        background-color: rgba(67, 117, 161, 0.696);
+                    }
                 }
                 &:hover{
-                    border-top: 1px solid black;
-                    border-bottom: 1px solid black;
+                    border-top: 1px solid rgb(255, 255, 255);
+                    border-bottom: 1px solid rgb(255, 255, 255);
+                    
                 }
             }
             
