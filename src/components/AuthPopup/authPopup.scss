@@ -1,0 +1,47 @@
+.auth-popup {
+    height: 300px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    @media (min-width: 1024px) {
+        height: 100px;
+    }
+    form{
+        width: 1024px;
+        height: 300px;
+        background: none;
+        @media (min-width: 1024px) {
+            height: 100px;
+        }
+        .my-input{
+            display: flex;
+            justify-content: center;
+            column-gap: 20px;
+            align-items: center;
+            row-gap: 20px;
+            flex-direction: column;
+            @media (min-width: 1024px) {
+               flex-direction: row;
+            }
+            input{
+                font-size: 20px;
+                padding:  0 15px;
+                width: 300px;
+                height: 50px;
+                border-radius: 10px;
+            }
+            button{
+                font-size: 20px;
+                background: none;
+                border: 1px solid black;
+                border-radius: 10px;
+                width: 200px;
+                height: 50px;
+                &:hover{
+                    background-color: crimson;
+                }
+            }
+        }
+    }
+    
+}

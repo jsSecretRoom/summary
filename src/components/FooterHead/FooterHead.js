@@ -3,8 +3,14 @@ import Github from '../../img/Github.svg'
 import Instagram from '../../img/Instagram.svg'
 import LinkedIn from '../../img/LinkedIn.svg'
 import Telegram from '../../img/Telegram.svg'
+
+import Animations from '../Animations/Animations';
+import { useEffect } from 'react';
+
 function FooterHead() {
-    
+    useEffect(()=>{
+        Animations('.nav-head');
+    });
     return ( 
         <section className='nav-head'>
             <div className='phone'>

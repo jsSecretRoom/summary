@@ -1,5 +1,11 @@
 .knowledge{
     padding: 40px 20px;
+    @media (min-width: 1024px) {
+        padding: 40px 100px;
+    }
+    @media (min-width: 1600px) {
+        padding: 40px 240px;
+    }
     .skil{
         color: white;font-size: 30px;
         font-weight: 900;

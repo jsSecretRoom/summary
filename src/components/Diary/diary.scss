@@ -1,37 +1,44 @@
 .diary {
     padding: 40px 20px;
+    height: auto;
     .diary-head {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 0 40px 0;
+        height: auto;
+        .diary-group{
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 0 40px 0;
 
-        opacity: 0;
-        transform:  translateY(100%);
-        transition: opacity 1.5s, transform 1s;
+            opacity: 0;
+            transform:  translateY(100%);
+            transition: opacity 1.5s, transform 1s;
+            height: auto;
+            &.animate {
+                opacity: 1;
+                transform: translateY(0);
+            }
 
-        &.animate {
-            opacity: 1;
-            transform: translateY(0);
+            p{
+                font-size: 30px;
+                color: white;
+                font-weight: 900;
+            }
+            button{
+                background-color: rgb(75, 212, 216);
+                border-radius: 10px;
+                
+                &:hover{
+                    background-color: crimson;
+                }
+                img{
+                    width: 60px;
+                }
+            }
         }
-
-        p{
-            font-size: 30px;
-            color: white;
-            font-weight: 900;
-        }
-        button{
-            background-color: rgb(75, 212, 216);
-            border-radius: 10px;
+        .auth-group{
             
-            &:hover{
-                background-color: rgb(231, 240, 67);
-            }
-            img{
-                width: 60px;
-            }
         }
-
     }
     .diary-body {
         padding: 0 0 40px 0;
@@ -68,8 +75,9 @@
             display: flex;
             column-gap: 20px;
             align-items: center;
-            height: 50px;
+            min-height: 70px;
             margin: 20px 0;
+            height: auto;
             
             &:hover{
                 button{

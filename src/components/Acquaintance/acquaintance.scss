@@ -31,12 +31,12 @@
             flex-direction: row;
         }
         .text{
-            margin: 20px;
-            font-size: 18px;
-            font-weight: 500;
-            color: black;
+            margin: 20px 0;
+            font-size: 20px;
+            font-weight: 700;
+            color: crimson;
             text-align: start;
-            max-width: 60vw;
+            max-width: 80vw;
             
             opacity: 0;
             transform: translateY(100%);
@@ -48,7 +48,8 @@
             }
             
             @media (min-width: 768px) {
-                font-size: 25px;
+                font-size: 30px;
+                max-width: 60vw;
             }
             @media (min-width: 1600px) {
                 max-width: 1220px;

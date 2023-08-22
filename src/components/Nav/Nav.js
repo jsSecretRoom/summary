@@ -10,10 +10,11 @@ function Nav() {
   
   useEffect(() => {
     Animations('.nav-conteiner');
+    Animations('.animate-nav');
   }, []);
 
   return ( 
-    <nav>
+    <nav className='animate-nav'>
       <div className='nav-conteiner'>
         <ul>
           <li><a href="">contacts </a></li>

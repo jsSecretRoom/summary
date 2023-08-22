@@ -6,6 +6,16 @@
     align-items: center;
     justify-content: space-evenly;
     flex-direction: column;
+
+    opacity: 0;
+    transform:  translateX(100%);
+    transition: opacity 1.5s, transform 1s;
+
+    &.animate {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
     @media (min-width: 910px) {
         flex-direction: row;
         height: 200px;
@@ -18,8 +28,6 @@
         text-align: center;
         position: relative;
         padding: 10px;
-
-        
 
         @media (min-width: 910px) {
             padding: 0;
