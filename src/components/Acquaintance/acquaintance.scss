@@ -1,19 +1,18 @@
 .about-my{
-    padding: 40px 20px;
+    padding: 70px 20px 40px 20px;
     .nice{
         font-size: 40px;
         font-weight: 900;
         color: #ffffff;
         text-align: center;
         
-
         opacity: 0;
-        transform: translateY(100%);
+        transform: translateX(-100%);
         transition: opacity 1s, transform 1s;
 
         &.animate { 
             opacity: 1;
-            transform: translateY(0);
+            transform: translateX(0);
         }
 
         @media (min-width: 768px) {
@@ -34,7 +33,7 @@
             margin: 20px 0;
             font-size: 20px;
             font-weight: 700;
-            color: crimson;
+            color: rgb(255, 255, 255);
             text-align: start;
             max-width: 80vw;
             

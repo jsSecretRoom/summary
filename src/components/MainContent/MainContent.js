@@ -48,25 +48,25 @@ function MainContent() {
           <Line/>
           <SocialIcons/>
           <Line/>
-          <ReaktDeco imageSrc={ReactSVG}/>
-          <ReaktDeco bottom="45%" left="75%" width="600px" height="600px" imageSrc={BlackReactSVG}/>
+          <ReaktDeco bottom="35%" left="-5%" width="400px" height="400px" zIndex="-2" imageSrc={ReactSVG}/>
+          <ReaktDeco bottom="20%" left="75%" width="200px" height="200px" zIndex="-2" imageSrc={BlackReactSVG}/>
+          <ReaktDeco bottom="10%" left="25%" width="70px" height="70px" zIndex="-2" imageSrc={BlackReactSVG}/>
+          <ReaktDeco bottom="60%" left="60%" width="90px" height="90px" zIndex="-2" imageSrc={BlackReactSVG}/>
         </div>
-        
         <div className='decor-main1'>
           <SkilsInfo/>
           <Line/>
-          <ReaktDeco bottom="-5%" left="90%" width="200px" height="200px" imageSrc={ReactSVG}/>
+          <ReaktDeco bottom="-5%" left="90%" width="200px" height="200px" zIndex="-2" imageSrc={ReactSVG}/>
         </div>
         <div className='decor-main2'>
           <MyProjectSlider/>
-          <ReaktDeco bottom="70%" left="5%" width="200px" height="200px" imageSrc={ReactSVG}/>
         </div>
         <div className='decor-main3'>
           {windowWidth <= 1600 && <Line />}
           <Diary/>
           <Line/>
-          <ReaktDeco bottom="-10%" left="50%" width="1000px" height="1000px" imageSrc={ReactSVG}/>
-          <ReaktDeco bottom="-20%" left="-8%" width="300px" height="300px" imageSrc={ReactSVG}/>
+          <ReaktDeco bottom="-10%" left="50%" width="600px" height="600px" zIndex="-2" imageSrc={ReactSVG}/>
+          <ReaktDeco bottom="50%" left="0%" width="300px" height="300px" zIndex="-2" imageSrc={ReactSVG}/>
         </div>
       </div>
       <footer className='animate-futer'>

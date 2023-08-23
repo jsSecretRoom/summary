@@ -1,12 +1,16 @@
 .projects-slider {
-    padding: 40px 0;
+    
+    position: relative;
     .head{
         text-align: center;
-        padding: 0 0 40px 0;
+        position: absolute;
+        width: 100%;
+        z-index: 2;
         p{
-            font-size: 35px;
-            color: white;
+            font-size: 50px;
+            color: crimson;
             font-weight: 900;
+            padding: 0 0 0 0;
         }
     }
     .slider {
@@ -77,7 +81,7 @@
                 z-index: 2;
 
                 opacity: 0;
-                transform: scale(7) translateY(100%);
+                transform: scale(7) translateY(-50%);
                 transition: opacity 2s, transform 2s;
                 &.animate{
                     opacity: 1;
@@ -88,10 +92,15 @@
                     display: flex;
                     column-gap: 10px;
                     align-items: center;
-                    
+                    padding: 0 0 0 0;
+                    z-index: 22;
+                    @media (min-width: 760px) {
+                        padding: 0 0 50px 0;
+                    }
                     .nav-dot {
                         width: 2vw;
                         height: 2vw;
+                        
                         background-color: #5F5E9B;
                         border-radius: 50%;
                         @media (min-width: 1600px) {
@@ -114,45 +123,13 @@
                 align-items: center;
                 overflow: hidden;
                 width: 100vw;
+                height: auto;
                 
                 @media (min-width: 1600px) {
                     width: 1600px;
                 }
-                .screen{
-                    pointer-events: none;
-                    height: auto;
-                    overflow: hidden;
-                    object-fit: cover;
-                    opacity: 0;
-                    transform: scale(1) translateY(160%); 
-                    transition: opacity 1.5s, transform 1.5s;
-                    display: flex;
-                    flex-direction: column;
-                    
-                    &.animate {
-                        opacity: 1;
-                        transform: scale(3) translateY(0); 
-                    }
-                    .img-block{
-                        width: 100%;
-                        position: relative;
-                        a{
-                            img{
-                                width: 0;
-                                border-radius: 10px;
-                                @media (min-width: 768px) {
-                                    width: 10vw;
-                                }
-                                @media (min-width: 1600px) {
-                                    width: 200px;
-                                }
-                            }
-                        }
-                    }
-                }
-
                 .screen-centr{
-                    height: auto;
+                    height: 100%;
                     z-index: 1;
                     overflow: hidden;
                     object-fit: cover;
@@ -165,16 +142,19 @@
                         transform: translateY(0);
                     }
                     .img-block{
-                        
+                        height: 100%;
                         a{
                             img{
-                                border-radius: 20px;
+                                border-radius: 30px;
                                 width: 100vw;
+                                padding: 10px;
+                                height: 100%;
                                 @media (min-width: 768px) {
-                                    width: 80vw;
+                                    padding: 30px;
+                                    border-radius: 70px;
                                 }
                                 @media (min-width: 1600px) {
-                                    width: 1200px;
+                                    width: 1600px;
                                 }
                             }
                         }

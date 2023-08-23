@@ -57,16 +57,9 @@ function MyProjectSlider() {
                             <img src={ExpandrRight} alt="ExpandrRight" />
                         </button>
                     </div>
-                    
                     <div className='carusell'>
-                        <div id='left-screen' className="screen">
-                            <MySlidesComponent slideprop={allSlides} activeIndex={leftSlideIndex} />
-                        </div>
                         <div id='centr-screen' className="screen-centr">
                             <MySlidesComponent slideprop={allSlides} activeIndex={activeSlideIndex} />
-                        </div>
-                        <div id='right-screen' className="screen">
-                            <MySlidesComponent slideprop={allSlides} activeIndex={rightSlideIndex} />
                         </div>
                     </div>
                     <SliderNavigation totalSlides={allSlides.length} activeSlideIndex={activeSlideIndex} />

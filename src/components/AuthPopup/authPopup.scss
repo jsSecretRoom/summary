@@ -3,6 +3,11 @@
     position: relative;
     display: flex;
     justify-content: center;
+    background-color: rgba(42, 99, 165, 0.435);
+    border-radius: 50px 50px 0 0;
+    &.failed{
+        background-color: rgba(220, 20, 60, 0.532);
+    }
     @media (min-width: 1024px) {
         height: 100px;
     }

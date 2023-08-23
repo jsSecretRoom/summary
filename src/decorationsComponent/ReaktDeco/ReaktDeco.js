@@ -2,12 +2,12 @@ import './reaktDeco.scss';
 
 
 
-const ReaktDeco = ({ bottom, left, width, height, imageSrc }) => {
+const ReaktDeco = ({ bottom, left, width, height, zIndex, imageSrc  }) => {
     const reaktDecoStyle = {
         position: 'absolute',
         bottom: bottom || '-20%',
         left: left || '-10%',
-        zIndex: '-5',
+        zIndex: zIndex || '',
         width: width,
         height: height,
     };

@@ -67,15 +67,15 @@ function Diary() {
             
             {isAuthenticated && (
                 <div className='diary-body'>
-                    <input
-                        type="text"
-                        name="diary-text"
-                        id="diary-text"
-                        placeholder='my-diary-text'
-                        value={diaryText}
-                        onChange={handleInputChange}
-                        onKeyDown={handleEnterKey}
-                    />
+                <input
+                    type="text"
+                    name="diary-text"
+                    id="diary-text"
+                    placeholder='my-diary-text'
+                    value={diaryText}
+                    onChange={handleInputChange}
+                    onKeyDown={handleEnterKey}
+                />
                 </div>
             )}
             <div className='diary-footer'>

@@ -1,50 +1,51 @@
 
 .main-conteiner{
     max-width: 1600px;
-
+    
     .decor-head, .decor-main1, .decor-main2, .decor-main3{
-    padding: 0 0 2px 0;
-    top: 70px;
-    width: 100vw;
-    height: auto;
-    overflow: hidden;
 
-    perspective: 1000px;
-    transform: perspective(1000px) rotateX(10deg) translateY(-600px);
-    background-color: cadetblue;
-    border-radius: 0;
-    transition: transform 0.5s ease;
+        padding: 0 0 2px 0;
+        top: 70px;
+        width: 100vw;
+        height: auto;
+        overflow: hidden;
 
-    box-shadow: 0 0px 0px rgba(0, 0, 0, 0);
+        perspective: 1000px;
+        transform: perspective(1000px) rotateX(10deg) translateY(-600px);
+        background-color: cadetblue;
+        border-radius: 0;
+        transition: transform 0.5s ease;
 
-    opacity: 0;
-    transition: opacity 1.5s, transform 1s;
+        box-shadow: 0 0px 0px rgba(0, 0, 0, 0);
+
+        opacity: 0;
+        transition: opacity 1.5s, transform 1s;
 
 
-    &.animate {
-        opacity: 1;
-        transform: perspective(1000px) rotateX(0deg) translateY(0px); 
-        animation: fadeIn 1s ease-in-out forwards; 
-    }
-
-    @media (min-width: 1600px) {
-        width: 1600px;
-        height: 800px;
-        border-radius: 0 0 50px 50px;
-        transform: perspective(1000px) rotateX(0deg) translateY(20vh);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-        border-bottom: 1px solid black;
         &.animate {
-        opacity: 1;
-        transform: perspective(1000px) rotateX(10deg) translateY(-60px); 
-        animation: fadeIn 1s ease-in-out forwards; 
+            opacity: 1;
+            transform: perspective(1000px) rotateX(0deg) translateY(0px); 
+            animation: fadeIn 1s ease-in-out forwards; 
         }
-        &:hover{
-        transform:  rotateX(0deg);
-        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7);
-        
+
+        @media (min-width: 1600px) {
+            width: 1600px;
+            height: 800px;
+            border-radius: 0 0 50px 50px;
+            transform: perspective(1000px) rotateX(0deg) translateY(20vh);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            border-bottom: 1px solid black;
+            &.animate {
+                opacity: 1;
+                transform: perspective(1000px) rotateX(10deg) translateY(-60px); 
+                animation: fadeIn 1s ease-in-out forwards; 
+            }
+            &:hover{
+                transform:  rotateX(0deg);
+                box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7);
+                
+            }
         }
-    }
 
     }
     .decor-main1{
@@ -75,7 +76,6 @@
     }
     .decor-main3{
         height: 650px;
-        overflow-y: scroll;
         transform: perspective(1000px) rotateX(0deg) translateY(20vh);
         border-radius: 0;
         

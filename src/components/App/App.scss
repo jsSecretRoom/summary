@@ -1,13 +1,27 @@
 .App{
-  overflow-x: hidden;
   position: relative;
   background-color: #575757;
-  z-index: 2;
+  overflow: hidden;
+  nav{
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #363636;
+    z-index: 5;
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: opacity 1s, transform 1s;
+    position: relative;
+    
+    width: 100%;
+    &.animate { 
+        opacity: 1;
+        transform: translateY(0);
+    }
+  }
   main{
     background-color: #575757;
-    @media (min-width: 1600px) {
-      background: url('../../img/bacground.svg') 0 0/cover no-repeat;
-    }
     display: flex;
     justify-items: center;
     align-items: center;
