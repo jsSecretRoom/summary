@@ -51,7 +51,7 @@ function MainContent() {
           <ReaktDeco bottom="35%" left="-5%" width="400px" height="400px" zIndex="-2" imageSrc={ReactSVG}/>
           <ReaktDeco bottom="20%" left="75%" width="200px" height="200px" zIndex="-2" imageSrc={BlackReactSVG}/>
           <ReaktDeco bottom="5%" left="25%" width="70px" height="70px" zIndex="-2" imageSrc={BlackReactSVG}/>
-          <ReaktDeco bottom="80%" left="60%" width="90px" height="90px" zIndex="-2" imageSrc={BlackReactSVG}/>
+          <ReaktDeco bottom="85%" left="60%" width="90px" height="90px" zIndex="-2" imageSrc={BlackReactSVG}/>
         </div>
         <div className='decor-main1'>
           <SkilsInfo/>
