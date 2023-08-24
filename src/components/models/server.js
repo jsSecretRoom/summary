@@ -1,25 +1,32 @@
-// server.js
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const DiaryEntry = require('./diaryEntry'); // Импортируйте модель
+const mongoose = require('mongoose');
+const DiaryEntry = require('./diaryEntry'); // Путь к вашей модели
 
 const app = express();
 
 app.use(bodyParser.json());
 app.use(cors());
 
-// Подключите базу данных
-require('./db');
+// Подключение к базе данных MongoDB
+mongoose.connect('mongodb://localhost:27017/diaryDB', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+}).then(() => {
+    console.log('Connected to MongoDB');
+}).catch(err => {
+    console.error('Error connecting to MongoDB:', err);
+});
 
 // Маршрут для получения записей
 app.get('/api/diary', async (req, res) => {
     try {
         const entries = await DiaryEntry.find();
-        res.json(entries);
+        res.json(entries); // Отправляем JSON-ответ
     } catch (error) {
         console.error('Error fetching diary entries:', error);
-        res.status(500).json({ error: 'An error occurred' });
+        res.status(500).json({ error: 'An error occurred' }); // Также можно отправить JSON в случае ошибки
     }
 });
 

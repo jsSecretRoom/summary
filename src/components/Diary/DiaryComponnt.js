@@ -9,49 +9,60 @@ function Diary() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [showAuthPopup, setShowAuthPopup] = useState(false);
     const [diaryText, setDiaryText] = useState('');
-    const [entries, setEntries] = useState([]);
+    const [diaryEntries, setDiaryEntries] = useState([]);
 
     useEffect(() => {
         Animations('.diary-group');
         Animations('.diary-body');
         Animations('.diary-footer');
-    }, []);
+    });
 
     useEffect(() => {
-        fetch('https://summary-iota-indol.vercel.app/api/diary')
-            .then(response => response.json())
-            .then(data => setEntries(data))
-            .catch(error => console.error('Error fetching diary entries:', error));
+        const fetchEntries = async () => {
+            try {
+                const response = await fetch('/api/diary');
+                const entries = await response.json();
+                setDiaryEntries(entries);
+            } catch (error) {
+                console.error('Error fetching diary entries:', error);
+            }
+        };
+        fetchEntries();
     }, []);
 
     const handleInputChange = (e) => {
         setDiaryText(e.target.value);
     };
 
-    const handleEnterKey = (e) => {
+    const handleEnterKey = async (e) => {
         if (e.key === 'Enter' && diaryText.trim() !== '') {
-            e.preventDefault(); // Предотвращаем стандартное поведение формы
-
-            // Отправляем новую запись на сервер
-            fetch('https://summary-iota-indol.vercel.app/api/diary', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ text: diaryText })
-            })
-            .then(response => response.json())
-            .then(newEntry => {
-                setEntries([...entries, newEntry]);
+            try {
+                const response = await fetch('/api/diary', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ text: diaryText })
+                });
+                const newEntry = await response.json();
+                setDiaryEntries([...diaryEntries, newEntry]);
                 setDiaryText('');
-            })
-            .catch(error => console.error('Error adding diary entry:', error));
+            } catch (error) {
+                console.error('Error adding diary entry:', error);
+            }
         }
     };
 
-    const handleDeleteEntry = (index) => {
-        const newEntries = entries.filter((_, i) => i !== index);
-        setEntries(newEntries);
+    const handleDeleteEntry = async (index) => {
+        try {
+            await fetch(`/api/diary/${diaryEntries[index]._id}`, {
+                method: 'DELETE'
+            });
+            const newEntries = diaryEntries.filter((_, i) => i !== index);
+            setDiaryEntries(newEntries);
+        } catch (error) {
+            console.error('Error deleting diary entry:', error);
+        }
     };
 
     const handleAuthenticate = () => {
@@ -75,8 +86,8 @@ function Diary() {
                 </div>
             </div>
             
-            <div className='diary-body'>
-                {isAuthenticated && ( // Показываем input только при аутентификации
+            {isAuthenticated && (
+                <div className='diary-body'>
                     <input
                         type="text"
                         name="diary-text"
@@ -86,16 +97,18 @@ function Diary() {
                         onChange={handleInputChange}
                         onKeyDown={handleEnterKey}
                     />
-                )}
-            </div>
-    
+                </div>
+            )}
+
             <div className='diary-footer'>
-                {entries.map((entry, index) => (
-                    <div className='list' key={index}>
+                {diaryEntries.map((entry, index) => (
+                    <div className='list' key={entry._id}>
                         <p>{entry.text}</p>
-                        <button onClick={() => handleDeleteEntry(index)}>
-                            <img src={Trach} alt="Trach" />
-                        </button>
+                        {isAuthenticated && (
+                            <button onClick={() => handleDeleteEntry(index)}>
+                                <img src={Trach} alt="Trash" />
+                            </button>
+                        )}
                     </div>
                 ))}
             </div>
