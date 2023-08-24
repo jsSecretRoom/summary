@@ -40,8 +40,8 @@ function App() {
         <main>
           {shouldRenderDecos && (
             <>
-              <ReaktDeco bottom="70%" left="65%" width="700px" height="700px" imageSrc={BlackReactSVG}/>
-              <ReaktDeco bottom="50%" left="-5%" width="400px" height="400px" imageSrc={ReactSVG}/>
+              <ReaktDeco bottom="70%" left="65%" width="700px" height="700px" imageSrc={ReactSVG}/>
+              <ReaktDeco bottom="50%" left="-5%" width="400px" height="400px" imageSrc={BlackReactSVG}/>
               <ReaktDeco bottom="30%" left="90%" width="300px" height="300px" imageSrc={ReactSVG}/>
               <ReaktDeco bottom="10%" left="-5%" width="600px" height="600px" imageSrc={BlackReactSVG}/>
             </>
