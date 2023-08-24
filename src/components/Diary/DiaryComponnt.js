@@ -23,7 +23,7 @@ function Diary() {
 
     const fetchDiaryEntries = () => {
         // Fetch diary entries from the server
-        fetch('/api/diary') // Используйте относительный путь
+        fetch('summary-73nz7kljp-jssecretroom.vercel.app') // Используйте относительный путь
             .then(response => response.json())
             .then(data => setDiaryEntries(data))
             .catch(error => console.error('Error fetching diary entries:', error));
