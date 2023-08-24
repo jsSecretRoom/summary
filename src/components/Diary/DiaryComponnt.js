@@ -9,7 +9,7 @@ function Diary() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [showAuthPopup, setShowAuthPopup] = useState(false);
     const [diaryText, setDiaryText] = useState('');
-    const [entries, setEntries] = useState([]); // Здесь храним записи
+    const [entries, setEntries] = useState([]);
 
     useEffect(() => {
         Animations('.diary-group');
@@ -18,7 +18,7 @@ function Diary() {
     }, []);
 
     useEffect(() => {
-        fetch('https://summary-iota-indol.vercel.app/api/diary') // Замените на URL вашего сервера на Vercel
+        fetch('https://summary-iota-indol.vercel.app/api/diary')
             .then(response => response.json())
             .then(data => setEntries(data))
             .catch(error => console.error('Error fetching diary entries:', error));
@@ -30,8 +30,10 @@ function Diary() {
 
     const handleEnterKey = (e) => {
         if (e.key === 'Enter' && diaryText.trim() !== '') {
+            e.preventDefault(); // Предотвращаем стандартное поведение формы
+
             // Отправляем новую запись на сервер
-            fetch('https://summary-iota-indol.vercel.app/api/diary', { // Замените на URL вашего сервера на Vercel
+            fetch('https://summary-iota-indol.vercel.app/api/diary', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -40,7 +42,7 @@ function Diary() {
             })
             .then(response => response.json())
             .then(newEntry => {
-                setEntries([...entries, newEntry]); // Добавляем новую запись в entries
+                setEntries([...entries, newEntry]);
                 setDiaryText('');
             })
             .catch(error => console.error('Error adding diary entry:', error));
