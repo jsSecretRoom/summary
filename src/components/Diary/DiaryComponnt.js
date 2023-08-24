@@ -23,7 +23,7 @@ function Diary() {
 
     const fetchDiaryEntries = () => {
         // Fetch diary entries from the server
-        fetch('https://summary-iota-indol.vercel.app/api/diary') // Use the appropriate API endpoint here
+        fetch('/api/diary') // Используйте относительный путь
             .then(response => response.json())
             .then(data => setDiaryEntries(data))
             .catch(error => console.error('Error fetching diary entries:', error));
@@ -36,7 +36,7 @@ function Diary() {
     const handleEnterKey = (e) => {
         if (e.key === 'Enter' && diaryText.trim() !== '') {
             // Save the diary entry to the server
-            fetch('https://summary-iota-indol.vercel.app/api/diary', {
+            fetch('/api/diary', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

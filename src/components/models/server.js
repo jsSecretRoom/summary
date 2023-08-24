@@ -37,4 +37,5 @@ app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
 
+//node server.js
 //xLYADTnYRe8H5MLYwpSl3UHQ
