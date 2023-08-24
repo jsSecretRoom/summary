@@ -1,4 +1,4 @@
-import './diary.scss'
+import './diary.scss';
 import React, { useState, useEffect } from 'react';
 import AuthPopup from '../AuthPopup/AuthPopup';
 import Animations from '../Animations/Animations';
@@ -15,54 +15,46 @@ function Diary() {
         Animations('.diary-group');
         Animations('.diary-body');
         Animations('.diary-footer');
-    });
+    }, []);
 
     useEffect(() => {
-        const fetchEntries = async () => {
-            try {
-                const response = await fetch('/api/diary');
-                const entries = await response.json();
-                setDiaryEntries(entries);
-            } catch (error) {
-                console.error('Error fetching diary entries:', error);
-            }
-        };
-        fetchEntries();
+        fetchDiaryEntries();
     }, []);
+
+    const fetchDiaryEntries = () => {
+        // Fetch diary entries from the server
+        fetch('https://summary-iota-indol.vercel.app/api/diary') // Use the appropriate API endpoint here
+            .then(response => response.json())
+            .then(data => setDiaryEntries(data))
+            .catch(error => console.error('Error fetching diary entries:', error));
+    };
 
     const handleInputChange = (e) => {
         setDiaryText(e.target.value);
     };
 
-    const handleEnterKey = async (e) => {
+    const handleEnterKey = (e) => {
         if (e.key === 'Enter' && diaryText.trim() !== '') {
-            try {
-                const response = await fetch('/api/diary', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ text: diaryText })
-                });
-                const newEntry = await response.json();
-                setDiaryEntries([...diaryEntries, newEntry]);
-                setDiaryText('');
-            } catch (error) {
-                console.error('Error adding diary entry:', error);
-            }
+            // Save the diary entry to the server
+            fetch('https://summary-iota-indol.vercel.app/api/diary', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ text: diaryText }),
+            })
+                .then(response => response.json())
+                .then(newEntry => {
+                    setDiaryEntries([...diaryEntries, newEntry]);
+                    setDiaryText('');
+                })
+                .catch(error => console.error('Error adding diary entry:', error));
         }
     };
 
-    const handleDeleteEntry = async (index) => {
-        try {
-            await fetch(`/api/diary/${diaryEntries[index]._id}`, {
-                method: 'DELETE'
-            });
-            const newEntries = diaryEntries.filter((_, i) => i !== index);
-            setDiaryEntries(newEntries);
-        } catch (error) {
-            console.error('Error deleting diary entry:', error);
-        }
+    const handleDeleteEntry = (index) => {
+        const newEntries = diaryEntries.filter((_, i) => i !== index);
+        setDiaryEntries(newEntries);
     };
 
     const handleAuthenticate = () => {
@@ -99,16 +91,13 @@ function Diary() {
                     />
                 </div>
             )}
-
             <div className='diary-footer'>
                 {diaryEntries.map((entry, index) => (
-                    <div className='list' key={entry._id}>
+                    <div className='list' key={index}>
                         <p>{entry.text}</p>
-                        {isAuthenticated && (
-                            <button onClick={() => handleDeleteEntry(index)}>
-                                <img src={Trach} alt="Trash" />
-                            </button>
-                        )}
+                        <button onClick={() => handleDeleteEntry(index)}>
+                            <img src={Trach} alt="Trach" />
+                        </button>
                     </div>
                 ))}
             </div>
