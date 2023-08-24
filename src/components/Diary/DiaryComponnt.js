@@ -67,8 +67,8 @@ function Diary() {
                 </div>
             </div>
             
-            {isAuthenticated && (
-                <div className='diary-body'>
+            <div className='diary-body'>
+                {isAuthenticated && ( // Показываем input только при аутентификации
                     <input
                         type="text"
                         name="diary-text"
@@ -78,8 +78,9 @@ function Diary() {
                         onChange={handleInputChange}
                         onKeyDown={handleEnterKey}
                     />
-                </div>
-            )}
+                )}
+            </div>
+    
             <div className='diary-footer'>
                 {entries.map((entry, index) => (
                     <div className='list' key={index}>
