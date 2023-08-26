@@ -1,5 +1,6 @@
 import './diary.scss';
 import React, { useState, useEffect } from 'react';
+import { addDiaryEntry, fetchDiaryEntries } from '../APYservices/diay'; // Перевірте правильний шлях до файла
 import AuthPopup from '../AuthPopup/AuthPopup';
 import Animations from '../Animations/Animations';
 import Trach from '../../img/Trash.svg';
@@ -18,39 +19,31 @@ function Diary() {
     }, []);
 
     useEffect(() => {
-        fetchDiaryEntries();
+        const storedIsAuthenticated = localStorage.getItem('isAuthenticated');
+        if (storedIsAuthenticated === 'true') {
+            setIsAuthenticated(true);
+        }
     }, []);
-
-    const fetchDiaryEntries = () => {
-        // Fetch diary entries from the server
-        fetch('summary-73nz7kljp-jssecretroom.vercel.app') // Используйте относительный путь
-            .then(response => response.json())
-            .then(data => setDiaryEntries(data))
-            .catch(error => console.error('Error fetching diary entries:', error));
-    };
 
     const handleInputChange = (e) => {
         setDiaryText(e.target.value);
     };
 
-    const handleEnterKey = (e) => {
+    const handleEnterKey = async (e) => {
         if (e.key === 'Enter' && diaryText.trim() !== '') {
-            // Save the diary entry to the server
-            fetch('/api/diary', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ text: diaryText }),
-            })
-                .then(response => response.json())
-                .then(newEntry => {
-                    setDiaryEntries([...diaryEntries, newEntry]);
-                    setDiaryText('');
-                })
-                .catch(error => console.error('Error adding diary entry:', error));
+            await addDiaryEntry(diaryText); // Додаємо запис до бази
+            const entries = await fetchDiaryEntries(); // Завантажуємо всі записи
+            setDiaryEntries(entries);
+            setDiaryText('');
         }
     };
+
+    useEffect(() => {
+        // Завантажуємо записи після аутентифікації
+        if (isAuthenticated) {
+            fetchDiaryEntries().then(entries => setDiaryEntries(entries));
+        }
+    }, [isAuthenticated]);
 
     const handleDeleteEntry = (index) => {
         const newEntries = diaryEntries.filter((_, i) => i !== index);
@@ -58,6 +51,7 @@ function Diary() {
     };
 
     const handleAuthenticate = () => {
+        localStorage.setItem('isAuthenticated', 'true');
         setIsAuthenticated(true);
         setShowAuthPopup(false);
     };
@@ -80,25 +74,25 @@ function Diary() {
             
             {isAuthenticated && (
                 <div className='diary-body'>
-                    <input
-                        type="text"
-                        name="diary-text"
-                        id="diary-text"
-                        placeholder='my-diary-text'
-                        value={diaryText}
-                        onChange={handleInputChange}
-                        onKeyDown={handleEnterKey}
-                    />
+                <input
+                    type="text"
+                    name="diary-text"
+                    id="diary-text"
+                    placeholder='my-diary-text'
+                    value={diaryText}
+                    onChange={handleInputChange}
+                    onKeyDown={handleEnterKey}
+                />
                 </div>
             )}
             <div className='diary-footer'>
                 {diaryEntries.map((entry, index) => (
-                    <div className='list' key={index}>
-                        <p>{entry.text}</p>
-                        <button onClick={() => handleDeleteEntry(index)}>
-                            <img src={Trach} alt="Trach" />
-                        </button>
-                    </div>
+                <div className='list' key={index}>
+                    <p>{entry}</p>
+                    <button onClick={() => handleDeleteEntry(index)}>
+                    <img src={Trach} alt="Trach" />
+                    </button>
+                </div>
                 ))}
             </div>
         </section>
