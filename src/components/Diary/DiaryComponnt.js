@@ -1,6 +1,5 @@
 import './diary.scss';
 import React, { useState, useEffect } from 'react';
-import { sql } from '@vercel/postgres';
 import { addDiaryEntry, fetchDiaryEntries } from '../APYservices/diay'; // Перевірте правильний шлях до файла
 import AuthPopup from '../AuthPopup/AuthPopup';
 import Animations from '../Animations/Animations';
@@ -13,8 +12,6 @@ function Diary() {
     const [diaryText, setDiaryText] = useState('');
     const [diaryEntries, setDiaryEntries] = useState([]);
 
-    // Налаштуємо рядок підключення
-    const connectionString = process.env.POSTGRES_URL;
 
     useEffect(() => {
         Animations('.diary-group');
@@ -23,22 +20,22 @@ function Diary() {
     }, []);
 
     useEffect(() => {
-        const storedIsAuthenticated = localStorage.getItem('isAuthenticated');
-        if (storedIsAuthenticated === 'true') {
-            setIsAuthenticated(true);
+        // Завантажуємо записи після аутентифікації
+        if (isAuthenticated) {
+          fetchDiaryEntries().then((entries) => setDiaryEntries(entries));
         }
-    }, []);
+    }, [isAuthenticated]);
 
     const handleInputChange = (e) => {
         setDiaryText(e.target.value);
     };
 
     const handleEnterKey = async (e) => {
-        if (e.key === 'Enter' && diaryText.trim() !== '') {
-            await addDiaryEntry(diaryText); // Додаємо запис до бази
-            const entries = await fetchDiaryEntries(); // Завантажуємо всі записи
-            setDiaryEntries(entries);
-            setDiaryText('');
+        if (e.key === "Enter" && diaryText.trim() !== "") {
+          await addDiaryEntry(diaryText); // Додаємо запис до бази
+          const entries = await fetchDiaryEntries(); // Завантажуємо всі записи
+          setDiaryEntries(entries);
+          setDiaryText("");
         }
     };
 
@@ -89,14 +86,14 @@ function Diary() {
                 />
                 </div>
             )}
-            <div className='diary-footer'>
+            <div className="diary-footer">
                 {diaryEntries.map((entry, index) => (
-                <div className='list' key={index}>
-                    <p>{entry}</p>
-                    <button onClick={() => handleDeleteEntry(index)}>
-                    <img src={Trach} alt="Trach" />
-                    </button>
-                </div>
+                    <div className="list" key={index}>
+                        <p>{entry}</p>
+                        <button onClick={() => handleDeleteEntry(index)}>
+                            <img src={Trach} alt="Trash" />
+                        </button>
+                    </div>
                 ))}
             </div>
         </section>
