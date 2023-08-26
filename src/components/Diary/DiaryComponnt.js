@@ -15,7 +15,6 @@ function Diary() {
 
     // Налаштуємо рядок підключення
     const connectionString = process.env.POSTGRES_URL;
-    sql.setConfig({ connectionString });
 
     useEffect(() => {
         Animations('.diary-group');
