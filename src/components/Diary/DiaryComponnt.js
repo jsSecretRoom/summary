@@ -1,5 +1,6 @@
 import './diary.scss';
 import React, { useState, useEffect } from 'react';
+import { sql } from '@vercel/postgres';
 import { addDiaryEntry, fetchDiaryEntries } from '../APYservices/diay'; // Перевірте правильний шлях до файла
 import AuthPopup from '../AuthPopup/AuthPopup';
 import Animations from '../Animations/Animations';
@@ -11,6 +12,10 @@ function Diary() {
     const [showAuthPopup, setShowAuthPopup] = useState(false);
     const [diaryText, setDiaryText] = useState('');
     const [diaryEntries, setDiaryEntries] = useState([]);
+
+    // Налаштуємо рядок підключення
+    const connectionString = process.env.POSTGRES_URL;
+    sql.setConfig({ connectionString });
 
     useEffect(() => {
         Animations('.diary-group');
