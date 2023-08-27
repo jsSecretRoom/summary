@@ -6,6 +6,7 @@ import Animations from '../Animations/Animations';
 import Trach from '../../img/Trash.svg';
 import Atom from '../../img/Atom.svg';
 
+
 function Diary() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [showAuthPopup, setShowAuthPopup] = useState(false);
