@@ -70,41 +70,34 @@ function Diary() {
 
     return (
         <section className="diary">
-            <div className='diary-head'>
-                <div className='diary-group'>
-                    <p>Chronological diary</p>
-                    <button onClick={() => setShowAuthPopup(true)}><img src={Atom} alt="Atom" /></button>
-                </div>
-                <div className='auth-group'>
-                    {showAuthPopup && (
-                        <AuthPopup
-                            onAuthenticate={handleAuthenticate}
-                        />
-                    )}
-                </div>
-            </div>
+            {/* ... остальной код заголовка и аутентификации ... */}
             
-            {isAuthenticated && (
-                <div className='diary-body'>
-                <input
-                    type="text"
-                    name="diary-text"
-                    id="diary-text"
-                    placeholder='my-diary-text'
-                    value={diaryText}
-                    onChange={handleInputChange}
-                    onKeyDown={handleEnterKey}
-                />
-                </div>
-            )}
+            <div className='diary-body'>
+                {initialDiaryEntries.map((entry, index) => (
+                    <div className='list' key={index}>
+                        <p>{entry}</p>
+                    </div>
+                ))}
+                {isAuthenticated && (
+                    <input
+                        type="text"
+                        name="diary-text"
+                        id="diary-text"
+                        placeholder='my-diary-text'
+                        value={diaryText}
+                        onChange={handleInputChange}
+                        onKeyDown={handleEnterKey}
+                    />
+                )}
+            </div>
             <div className='diary-footer'>
                 {diaryEntries.map((entry, index) => (
-                <div className='list' key={index}>
-                    <p>{entry}</p>
-                    <button onClick={() => handleDeleteEntry(index)}>
-                    <img src={Trach} alt="Trach" />
-                    </button>
-                </div>
+                    <div className='list' key={index}>
+                        <p>{entry}</p>
+                        <button onClick={() => handleDeleteEntry(index)}>
+                            <img src={Trach} alt="Trash" />
+                        </button>
+                    </div>
                 ))}
             </div>
         </section>
