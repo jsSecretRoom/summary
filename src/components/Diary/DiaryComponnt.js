@@ -1,5 +1,6 @@
 import './diary.scss';
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import AuthPopup from '../AuthPopup/AuthPopup';
 import Animations from '../Animations/Animations';
 import Trach from '../../img/Trash.svg';
@@ -32,10 +33,14 @@ function Diary() {
         setDiaryText(e.target.value);
     };
 
-    const handleEnterKey = (e) => {
+    const handleEnterKey = async (e) => {
         if (e.key === 'Enter' && diaryText.trim() !== '') {
-        setDiaryEntries([...diaryEntries, diaryText]);
-        setDiaryText('');
+          try {
+            await axios.post('/api/save-entry', { entryText: diaryText });
+            setDiaryText('');
+          } catch (error) {
+            console.error('Error saving entry:', error);
+          }
         }
     };
 
