@@ -7,17 +7,17 @@ import Trach from '../../img/Trash.svg';
 import Atom from '../../img/Atom.svg';
 
 const initialDiaryEntries = [
-    "14/05/2022 - Started learning frontend.",
-    "14/07/2022 - Learned basic HTML AND CSS ",
-    "14/08/2022 - I practiced cross-browser layout, consolidated my knowledge in practice",
-    "15/08/2022 - Started reading the basic java script",
-    "01/09/2022 - At the same time, having read English",
-    "01/01/2023 - Tested js base, practiced codeware, read documentation",
-    "02/10/2023 - Starting js & React course on udemy",
-    "01/04/2023 - Actively hacking js and practicing it in my projects, improving my knowledge of the design and logic of sites",
-    "04/15/2023 - Actively read the React library",
-    "08/15/2023 - Having created this project, I've enriched the project and my portfolio",
-    "08/27/2023 - I will study additional libraries and learn advanced practices",
+    "14d/05m/2022y - Started learning frontend.",
+    "14d/07m/2022y - Learned basic HTML AND CSS ",
+    "14d/08m/2022y - I practiced cross-browser layout, consolidated my knowledge in practice",
+    "15d/08m/2022y - Started reading the basic java script",
+    "01d/09m/2022y - At the same time I learned English",
+    "10d/01m/2023y - Tested js base, practiced codeware, read documentation",
+    "20d/02m/2023y - Starting js & React course on udemy",
+    "01d/04m/2023y - Actively hacking js and practicing it in my projects, improving my knowledge of the design and logic of sites",
+    "15d/04m/2023y - Actively read the React library",
+    "15d/08m/2023y - Having created this project, I've enriched the project and my portfolio",
+    "27d/08m/2023y - I will study additional libraries and learn advanced practices",
 ];
 
 function Diary() {
