@@ -2,7 +2,7 @@
 .custom-modal {
     position: absolute;
     inset: 70px 0 0 0;
-    background-color: #1d5d83;
+    background-color: cadetblue;
     overflow: auto;
     outline: none;
     padding: 70px 20px 0 20px;
@@ -22,22 +22,35 @@
         flex-direction: column;
         row-gap: 30px;
         .menu-item {
-            margin-right: 20px;
             
-            .menu-button {
+            .trig-cont{
+                margin-right: 20px;
                 display: flex;
-                flex-direction: column;
-                cursor: pointer;
-                font-size: 30px;
-
+                column-gap: 25px;
+                .trig{
+                    align-self: flex-start;
+                    width: 40px;
+                    &.active {
+                        transform: rotate(180deg);
+                    }
+                }
+                .menu-button {
+                    display: flex;
+                    flex-direction: column;
+                    cursor: pointer;
+                    font-size: 30px;
+                    color: crimson;
+                }
             }
+            
+
             .sublist {
                 width: 70vi;
                 margin-top: 5px;
                 padding: 10px;
                 .item{
                     padding: 15px 0 0 0;
-                    font-size: 20px;
+                    font-size: 25px;
                     .sublist-item {
                         color: rgb(255, 255, 255);
                         cursor: pointer;

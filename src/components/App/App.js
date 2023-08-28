@@ -3,21 +3,24 @@ import './App.scss';
 import './ModalStyles.scss';
 
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router} from 'react-router-dom';
 import Modal from 'react-modal';
 
 import Nav from '../Nav/Nav';
 import MainContent from '../MainContent/MainContent';
 import AuthContainer from '../EmailForm/AuthContainer';
+
 import ReaktDeco from '../../decorationsComponent/ReaktDeco/ReaktDeco';
 import BlackReactSVG from '../../img/black_react_icon.svg';
 import ReactSVG from '../../img/logo_react.svg';
+import Trig from '../../img/trigenum.svg'
 
 function App() {
   const [showModal, setShowModal] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [openItem, setOpenItem] = useState(null);
+  const [activeItem, setActiveItem] = useState(null);
 
   const menuItems = [
     {
@@ -40,6 +43,7 @@ function App() {
 
   const toggleList = (itemId) => {
     setOpenItem(openItem === itemId ? null : itemId);
+    setActiveItem(activeItem === itemId ? null : itemId);
   };
 
   const handleResize = () => {
@@ -96,22 +100,28 @@ function App() {
           >
             <div className="modal-content">
               <div className="menu">
-                  {menuItems.map((item) => (
-                    <div key={item.id} className="menu-item">
-                        <div className="menu-button" onClick={() => toggleList(item.id)}>
-                          {item.label}
-                        </div>
-                        {openItem === item.id && (
-                          <ul className="sublist">
-                            {item.list.map((subitem, index) => (
-                              <div className='item'>
-                                <a href={item.links[index]} key={index} className="sublist-item">
-                                  {subitem}
-                                </a>
-                              </div>
-                            ))}
-                          </ul>
-                        )}
+                {menuItems.map((item) => (
+                  <div key={item.id} className="menu-item">
+                    <div className='trig-cont'>
+                      <img className={`trig ${activeItem === item.id ? 'active' : ''}`} src={Trig} alt="Trig" />
+                      <div
+                        className={`menu-button ${activeItem === item.id ? 'active' : ''}`}
+                        onClick={() => toggleList(item.id)}
+                      >
+                        {item.label}
+                      </div>
+                    </div>
+                    {openItem === item.id && (
+                      <ul className="sublist">
+                        {item.list.map((subitem, index) => (
+                          <div className='item'>
+                            <a href={item.links[index]} key={index} className="sublist-item">
+                              {subitem}
+                            </a>
+                          </div>
+                        ))}
+                      </ul>
+                    )}
                   </div>
                 ))}
               </div>

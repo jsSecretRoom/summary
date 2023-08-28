@@ -12,6 +12,7 @@ import NavBottom from '../NavBottom/NavBottom';
 import ReaktDeco from '../../decorationsComponent/ReaktDeco/ReaktDeco';
 import Animations from '../Animations/Animations';
 
+
 import ReactSVG from '../../img/logo_react.svg';
 import BlackReactSVG from '../../img/black_react_icon.svg';
 
@@ -53,15 +54,15 @@ function MainContent() {
           <ReaktDeco bottom="5%" left="25%" width="70px" height="70px" zIndex="-2" imageSrc={BlackReactSVG}/>
           <ReaktDeco bottom="85%" left="60%" width="90px" height="90px" zIndex="-2" imageSrc={BlackReactSVG}/>
         </div>
-        <div className='decor-main1'>
+        <div className='decor-main1' id='skils'>
           <SkilsInfo/>
           <Line/>
           <ReaktDeco bottom="-5%" left="90%" width="200px" height="200px" zIndex="-2" imageSrc={ReactSVG}/>
         </div>
-        <div className='decor-main2'>
+        <div className='decor-main2' id='projects'>
           <MyProjectSlider/>
         </div>
-        <div className='decor-main3'>
+        <div className='decor-main3' id='diary'>
           {windowWidth <= 1600 && <Line />}
           <Diary/>
           <Line/>
