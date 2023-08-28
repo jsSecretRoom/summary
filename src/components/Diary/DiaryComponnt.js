@@ -8,7 +8,7 @@ import Atom from '../../img/Atom.svg';
 
 const initialDiaryEntries = [
     "14d/05m/2022y - Started learning frontend.",
-    "14d/07m/2022y - Learned basic HTML AND CSS ",
+    "14d/07m/2022y - Learned basic HTML & CSS ",
     "14d/08m/2022y - I practiced cross-browser layout, consolidated my knowledge in practice",
     "15d/08m/2022y - Started reading the basic java script",
     "01d/09m/2022y - At the same time I learned English",
@@ -73,7 +73,7 @@ function Diary() {
             <div className='diary-head'>
                 <div className='diary-group'>
                     <p>Chronological diary</p>
-                    <button onClick={() => setShowAuthPopup(true)}><img src={Atom} alt="Atom" /></button>
+                    <button onClick={() => setShowAuthPopup(!showAuthPopup)}><img src={Atom} alt="Atom" /></button>
                 </div>
                 <div className='auth-group'>
                     {showAuthPopup && (

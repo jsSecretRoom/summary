@@ -12,7 +12,10 @@
     opacity: 0;
     transform: translateY(-100%);
     transition: opacity 1s, transform 1s;
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     
     width: 100%;
     &.animate { 
@@ -21,6 +24,7 @@
     }
   }
   main{
+    
     background-color: #575757;
     display: flex;
     justify-items: center;

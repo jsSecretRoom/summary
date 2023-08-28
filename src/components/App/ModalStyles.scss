@@ -1,0 +1,54 @@
+/* modalStyles.css */
+.custom-modal {
+    position: absolute;
+    inset: 70px 0 0 0;
+    background-color: #1d5d83;
+    overflow: auto;
+    outline: none;
+    padding: 70px 20px 0 20px;
+    z-index: 6;
+}
+  
+.custom-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(255, 255, 255, 0.75);
+}
+  
+.modal-content {
+    z-index: 10;
+    .menu {
+        display: flex;
+        flex-direction: column;
+        row-gap: 30px;
+        .menu-item {
+            margin-right: 20px;
+            
+            .menu-button {
+                display: flex;
+                flex-direction: column;
+                cursor: pointer;
+                font-size: 30px;
+
+            }
+            .sublist {
+                width: 70vi;
+                margin-top: 5px;
+                padding: 10px;
+                .item{
+                    padding: 15px 0 0 0;
+                    font-size: 20px;
+                    .sublist-item {
+                        color: rgb(255, 255, 255);
+                        cursor: pointer;
+    
+                        &:hover {
+                            color: #3a3a3a;
+                        }
+                    }
+                }
+            }
+        }
+    }   
+}
+  
